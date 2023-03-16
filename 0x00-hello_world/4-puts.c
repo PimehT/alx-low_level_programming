@@ -1,6 +1,6 @@
 /*
  * A program that prints text.
- * /
+ */
 
  #include <stdio.h>
 
