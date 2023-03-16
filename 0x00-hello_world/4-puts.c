@@ -1,5 +1,7 @@
-/*
- * A function that prints the text programming is like a multilingual puzzle.
+/**
+ * main - this is the main function
+ * str - this holds a string
+ * Return: always 0.
  */
 
 #include <stdio.h>
