@@ -3,17 +3,13 @@
  * Return: always 0.
  */
 #include <stdio.h>
-#include <stdlib.h>
 
 int main(void)
 {
-	int i = 'a';
+	int i;
 
-	while (i <= 'z')
-	{
+	for (i = 'a' ; i <= 'z' ; i++)
 		putchar(i);
-		i = i++;
-	}
-	putchar("\n");
+	putchar('\n');
 	return (0);
 }
