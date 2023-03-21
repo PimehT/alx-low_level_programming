@@ -2,12 +2,11 @@
 #include "main.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: the character to print
  * main - this function is the entry point
  * Return: always 0
  */
 
+int _putchar(char c);
 
 int main(void)
 {
