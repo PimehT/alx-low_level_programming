@@ -1,10 +1,14 @@
+#include <stdio.h>
+#include "main.h"
+
 /**
- * main - this is the main function
+ * _putchar - writes the character c to stdout
+ * @c: the character to print
+ * main - this function is the entry point
  * Return: always 0
  */
 
-#include <stdio.h>
-#include "main.h"
+int _putchar(char c);
 
 int main(void)
 {
@@ -17,5 +21,6 @@ int main(void)
 	_putchar('a');
 	_putchar('r');
 	_putchar('\n');
+
 	return (0);
 }
