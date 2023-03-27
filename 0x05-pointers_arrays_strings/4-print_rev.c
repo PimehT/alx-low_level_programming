@@ -20,7 +20,15 @@ void print_rev(char *s)
 	}
 	for (i = c; i >= 0; i--)
 	{
-		j = *(s + i);
-		_putchar(j);
+		if (i == 0)
+		{
+			j = *(s + i);
+			_putchar(j);
+			_putchar('\n');
+		} else
+		{
+			j = *(s + i);
+			_putchar(j);
+		}
 	}
 }
