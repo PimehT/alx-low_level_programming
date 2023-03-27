@@ -20,10 +20,8 @@ void print_rev(char *s)
 	}
 	for (i = c - 1; i >= 0; i--)
 	{
-		if (i == 0)
+		if (c == 0 || c == 1)
 		{
-			j = *(s + i);
-			_putchar(j);
 			_putchar('\n');
 		} else
 		{
@@ -31,4 +29,5 @@ void print_rev(char *s)
 			_putchar(j);
 		}
 	}
+	_putchar('\n');
 }
