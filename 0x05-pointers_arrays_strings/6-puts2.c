@@ -17,8 +17,13 @@ void puts2(char *str)
 		c++;
 	for (i = 0; i < c - 1; i += 2)
 	{
-		j = *(str + i);
-		_putchar(j);
+		if (c == 0 || c == 1)
+			_putchar('\n');
+		else
+		{
+			j = *(str + i);
+			_putchar(j);
+		}
 	}
 	_putchar('\n');
 }
