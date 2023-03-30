@@ -2,28 +2,26 @@
 
 /**
  * leet - encodes a string to 1337
- * @str: string to be modified
+ * @s: string to be modified
  *
  * Return: pointer to string
  */
-char *leet(char *str)
+char *leet(char *s)
 {
-	int i, j;
-	char leet[9] = {'0', 'L', '*', 'E', 'A', '*', '*', 'T'};
+	char *r = s;
+	char a[] = { 'a', 'e', 'o', 't', 'l' };
+	char n[] = { 4, 3, 0, 7, 1 };
+	int i = 0;
 
-	i = 0;
-	while (str[i])
+	while (*s)
 	{
-		for (j = 0; j <= 7; j++)
+		for (i = 0; i < 5; i++)
 		{
-			if (str[i] == leet[j] ||
-			    str[i] == leet[j] + 32)
-			{
-				str[i] = j + '0';
-			}
+			if (*s == a[i] || *s == a[i] - 32)
+				*s = n[i] + '0';
 		}
-		i++;
+		s++;
 	}
 
-	return (str);
+	return (r);
 }
