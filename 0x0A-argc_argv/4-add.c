@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	int i, sum = 0;
 
 	if (argc < 3)
-		printf("0\n");
+		printf("%d\n", sum);
 	else
 	{
 		for (i = 1; i < argc; i++)
