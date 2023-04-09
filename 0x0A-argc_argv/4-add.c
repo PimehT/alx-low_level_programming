@@ -16,13 +16,12 @@ int main(int argc, char *argv[])
 	if (argc < 3)
 	{
 		printf("%d\n", sum);
-		return (1);
 	}
 	else
 	{
 		for (i = 1; i < argc; i++)
 		{
-			if (!(atoi(argv[i])))
+			if (!(atoi(argv[i])) || atoi(argv[i]) < 0)
 			{
 				printf("Error\n");
 				return (1);
