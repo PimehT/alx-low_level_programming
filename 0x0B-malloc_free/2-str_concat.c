@@ -21,17 +21,11 @@ char *str_concat(char *s1, char *s2)
 		len2++;
 	if (s1 == NULL && s2 == NULL)
 	{
-		len = 2;
-		s3 = (char *)malloc(len * sizeof(char));
+		s3 = (char *)malloc(1 * sizeof(char));
 		s3[0] = '\n';
-		s3[1] = '\n';
 	}
-	if (s1 == NULL)
-		len = len2 + 1;
-	else if (s2 == NULL)
-		len = len1 + 1;
-	else
-		len = len1 + len2 + 1;
+
+	len = len1 + len2 + 1;
 	s3 = (char *)malloc(len * sizeof(char));
 	if (s3 == NULL && len > 1)
 		return (NULL);
