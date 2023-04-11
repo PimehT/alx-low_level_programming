@@ -20,6 +20,7 @@ char *_strdup(char *str)
 	{
 		str1 = NULL;
 		return (str1);
+	}
 
 	len = 0;
 	while (str[len] != 0)
