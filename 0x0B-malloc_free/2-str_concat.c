@@ -19,34 +19,24 @@ char *str_concat(char *s1, char *s2)
 		len2++;
 	if (s1 == NULL && s2 == NULL)
 	{
-		s3 = (char *)malloc(2 * sizeof(char));
-		s3[0] = '\n';
-		s3[1] = '\n';
-		return (s3);
+		return (NULL);
 	}
 
 	len = len1 + len2 + 1;
 	s3 = (char *)malloc(len * sizeof(char));
-	if (s1 == NULL && s2 != NULL)
-	{
-		for (i = 0; i < len2; i++)
-			s3[i] = s2[i];
-		s3[len] = '\0';
-		return (s3);
-	}
-	if (s1 != NULL && s2 == NULL)
+
+	if (s3 == NULL && len > 1)
+		return (NULL);
+	if (s1)
 	{
 		for (i = 0; i < len1; i++)
 			s3[i] = s1[i];
-		s3[len] = '\0';
-		return (s3);
 	}
-	if (s3 == NULL && len > 1)
-		return (NULL);
-	for (i = 0; i < len1; i++)
-		s3[i] = s1[i];
-	for (i = 0, j = len1; i < len2 && j < len - 1; i++, j++)
-		s3[j] = s2[i];
+	if (s2)
+	{
+		for (j = 0, i = len1; i < len - 1; j++, i++)
+			s3[i] = s2[j];
+	}
 	s3[len] = '\0';
 	return (s3);
 }
