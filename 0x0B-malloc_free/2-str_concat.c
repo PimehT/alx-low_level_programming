@@ -29,15 +29,20 @@ char *str_concat(char *s1, char *s2)
 	s3 = (char *)malloc(len * sizeof(char));
 	if (s3 == NULL && len > 1)
 		return (NULL);
-	if (len1 != 0)
+	if (len1 == 0)
+	{
+		for (i = 0; i < len2; i++)
+			s3[i] = s2[i];
+	} else if (len2 == 0)
 	{
 		for (i = 0; i < len1; i++)
 			s3[i] = s1[i];
-	}
-	if (len2 != 0)
+	} else
 	{
+		for (i = 0; i < len1; i++)
+			s3[i] = s1[i];
 		for (i = 0, j = len1; i < len2 && j < len - 1; i++, j++)
-		s3[j] = s2[i];
+			s3[j] = s2[i];
 	}
 	s3[len] = '\0';
 	return (s3);
