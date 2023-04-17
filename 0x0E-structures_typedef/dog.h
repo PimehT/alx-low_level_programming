@@ -3,9 +3,9 @@
 
 /**
  * struct dog - a dog's attribute
- * @name: the first attribute
- * @age: the second attribute
- * @owner: the third attribute
+ * @name: the dog's name
+ * @age: the dog's age
+ * @owner: the dog's owner
  *
  * Description: This struct defines a dog's attribute
  */
@@ -15,6 +15,6 @@ typedef struct dog
 	char *name;
 	float age;
 	char *owner;
-} dog_t;
+};
 
 #endif
