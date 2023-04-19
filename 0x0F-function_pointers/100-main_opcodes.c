@@ -11,7 +11,7 @@
 int main(int argc, char **argv)
 {
 	int i, n;
-	unsigned char *p;
+	char *p;
 
 	if (argc != 2)
 	{
@@ -27,10 +27,10 @@ int main(int argc, char **argv)
 		return (2);
 	}
 
-	p = (unsigned char *) main;
+	p = (char *) main;
 
 	for (i = 0; i < n; i++)
-		printf("%02x ", *(p + i));
+		printf("%02hhx ", p[i]);
 
 	printf("\n");
 
