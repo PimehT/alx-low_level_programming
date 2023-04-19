@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 	p = (unsigned char *) main;
 
 	for (i = 0; i < n; i++)
-		printf("%02x ", *(p + 1));
+		printf("%02x ", *(p + i));
 
 	printf("\n");
 
