@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 
 	num1 = atoi(argv[1]);
 	op_str = argv[2];
-	num2 = atoi(argv[2]);
+	num2 = atoi(argv[3]);
 
 	op_func = get_op_func(op_str);
 	if (op_func == NULL)
