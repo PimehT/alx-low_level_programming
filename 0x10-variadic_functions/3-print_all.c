@@ -1,6 +1,6 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
-#include <stdio.ih>
+#include <stdio.h>
 
 /**
  * print_char - prints a char
