@@ -1,23 +1,11 @@
 #include "lists.h"
 
 /**
- * before_main - prints text before main().
+ * before_main - prints text before the function main()
  *
  */
-void before_main(void)
+void __attribute__((constructor)) before_main()
 {
 	printf("You're beat! and yet, you must allow,\n");
 	printf("I bore my house upon my back!\n");
-}
-
-/**
- * main - entry point
- *
- * Return: Always 0.
- */
-int main(void)
-{
-	before_main();
-
-	return (0);
 }
