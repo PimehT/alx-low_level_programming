@@ -9,7 +9,7 @@
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *last_node;
+	list_t *last_node, *current;
 
 	if (str == NULL)
 		return (NULL);
@@ -27,7 +27,17 @@ list_t *add_node_end(list_t **head, const char *str)
 
 	last_node->len = strlen(str);
 	last_node->next = NULL;
-	*head = last_node;
+	if (*head != NULL)
+	{
+		*head = last_node;
+		return (last_node);
+	}
+
+	current = *head;
+	while (current->next != NULL)
+		current = current->next;
+
+	current = last_node;
 
 	return (last_node);
 }
