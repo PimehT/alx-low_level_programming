@@ -25,7 +25,7 @@ int main(void)
  *
  * Return: Always 0.
  */
-int main()
+int main(void)
 {
 	before_main();
 	main();
