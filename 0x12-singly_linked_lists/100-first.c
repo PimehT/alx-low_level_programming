@@ -11,16 +11,6 @@ void before_main(void)
 }
 
 /**
- * main - check the code
- *
- * Return: Always 0.
- */
-int main(void)
-{
-	return (0);
-}
-
-/**
  * main - entry point
  *
  * Return: Always 0.
