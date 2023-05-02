@@ -22,7 +22,7 @@ size_t free_listint_safe(listint_t **h)
 			temp = *h;
 			*h = NULL;
 			free(temp);
-			break
+			break;
 		}
 		else
 		{
