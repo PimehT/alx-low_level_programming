@@ -1,15 +1,15 @@
 #include "main.h"
 
 /**
- * binary_to_uint - converts a binary to an unsigned int
+ * binary_to_uint - converts binary string to unsigned int
  * @b: binary string
  *
- * Return: converted number or 0 on failure
+ * Return: result
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int decimal = 0;
-	int i;
+	unsigned int result = 0;
+	unsigned int i;
 
 	if (b == NULL)
 		return (0);
@@ -19,10 +19,10 @@ unsigned int binary_to_uint(const char *b)
 		if (b[i] != '0' && b[i] != '1')
 			return (0);
 
-		decimal <<= 1;
+		result <<= 1;
 		if (b[i] == '1')
-			decimal += 1;
+			result += 1;
 	}
 
-	return (decimal);
+	return (result);
 }
