@@ -1,28 +1,6 @@
 #include "main.h"
 
 /**
- * _pow - returns exponetial of an int
- * @x: int to exponetiate
- * @y: the power
- *
- * Return: result
- */
-unsigned int _pow(unsigned int x, unsigned int y)
-{
-	unsigned int result = 1;
-
-	if (x == 0)
-		return (0);
-
-	if (y == 0)
-		return (1);
-
-	result = x * _pow(x, (y - 1));
-
-	return (result);
-}
-
-/**
  * binary_to_uint - converts a binary to an unsigned int
  * @b: binary string
  *
