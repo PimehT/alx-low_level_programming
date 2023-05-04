@@ -11,15 +11,14 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned int count, i;
 
-	if (m == n)
-		return (0);
-
 	count = 0;
 	i = 0;
 	while (i < (sizeof(unsigned long int) * 8))
 	{
-		if ((n >> i) != (m >> i))
+		if ((n & 1) != (m & 1))
 			count++;
+		n >>= 1;
+		m >>= 1;
 		i++;
 	}
 
