@@ -28,6 +28,9 @@ int main(int argc, char *argv[])
 	if (argc != 3)
 		exit_error(97, "Usage: cp file_from file_to");
 
+	if (strcmp(argv[1], argv[2]) == 0)
+		exit_error(97, "Usage: cp file_from file_to");
+
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
 		exit_error(98, "Error: Can't read from file");
