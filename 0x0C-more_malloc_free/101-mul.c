@@ -126,7 +126,7 @@ char *mul(char *num1, char *num2)
 	}
 	n1 = _strlen(num1);
 	n2 = _strlen(num2);
-	tmp_len = n1 + n2;
+	tmp_len = n1 + n2 + 1;
 	tmp = calloc(tmp_len, sizeof(char));
 	result = calloc(tmp_len + 1, sizeof(char));
 	if (tmp == NULL || result == NULL)
@@ -163,6 +163,7 @@ int main(int argc, char **argv)
 	if (result == NULL)
 	{
 		printf("Error\n");
+		free(result);
 		exit(98);
 	}
 
