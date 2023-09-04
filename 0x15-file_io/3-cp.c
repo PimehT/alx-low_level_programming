@@ -1,60 +1,63 @@
 #include "main.h"
 
 /**
- * exit_error - print error message
- * @code: the exit code
- * @msg: the error message
+ * main - Copies the content of a file to another file.
+ * @argc: Number of arguments.
+ * @argv: Array of arguments.
  *
- * Return: nothing
- */
-void exit_error(int code, char *msg)
-{
-	dprintf(STDERR_FILENO, "%s\n", msg);
-	exit(code);
-}
-
-/**
- * main - check the code
- * @argc: argument counter
- * @argv: argument array
- *
- * Return: Always 0.
+ * Return: 0 on success, otherwise exit codes: 97, 98, 99, 100.
  */
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to, r_count, w_count;
-	char buf[BUFSIZE];
+    int fd_from, fd_to, n;
+    char buffer[BUFSIZE];
 
-	if (argc != 3)
-		exit_error(97, "Usage: cp file_from file_to");
+    if (argc != 3)
+    {
+        dprintf(2, "Usage: cp file_from file_to\n");
+        exit(97);
+    }
 
-	if (strcmp(argv[1], argv[2]) == 0)
-		exit_error(97, "Usage: cp file_from file_to");
+    fd_from = open(argv[1], O_RDONLY);
+    if (fd_from == -1)
+    {
+        dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+        exit(98);
+    }
 
-	fd_from = open(argv[1], O_RDONLY);
-	if (fd_from == -1)
-		exit_error(98, "Error: Can't read from file");
+    fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+    if (fd_to == -1)
+    {
+        dprintf(2, "Error: Can't write to %s\n", argv[2]);
+        close(fd_from);
+        exit(99);
+    }
 
-	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (fd_to == -1)
-		exit_error(99, "Error: Can't write to file");
+    while ((n = read(fd_from, buffer, BUFSIZE)) > 0)
+    {
+        if (write(fd_to, buffer, n) != n)
+        {
+            dprintf(2, "Error: Can't write to %s\n", argv[2]);
+            close(fd_from);
+            close(fd_to);
+            exit(99);
+        }
+    }
 
-	while ((r_count = read(fd_from, buf, BUFSIZE)) > 0)
-	{
-		w_count = write(fd_to, buf, r_count);
-		if (w_count != r_count)
-			exit_error(99, "Error: Can't write to file");
-	}
+    if (n == -1)
+    {
+        dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+        close(fd_from);
+        close(fd_to);
+        exit(98);
+    }
 
-	if (r_count == -1)
-		exit_error(98, "Error: Can't read from file");
+    if (close(fd_from) == -1 || close(fd_to) == -1)
+    {
+        dprintf(2, "Error: Can't close fd %d\n", (close(fd_from) == -1) ? fd_from : fd_to);
+        exit(100);
+    }
 
-	if (close(fd_from) == -1)
-		exit_error(100, "Error: Can't close fd");
-
-	if (close(fd_to) == -1)
-		exit_error(100, "Error: Can't close fd");
-
-	return (0);
+    return (0);
 }
 
