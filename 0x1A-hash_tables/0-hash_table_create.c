@@ -4,13 +4,15 @@
  * hash_table_create - creates a hash table
  * @size: size of HashTable to be created
  *
- * Return: pointer to the hash table, otherwise NULL
+ * Return: pointer to the hash table
+ * otherwise if an error occurs, return NULL
 */
 hash_table_t *hash_table_create(unsigned long int size)
 {
 	unsigned long int i;
-	hash_table_t *table = (hash_table_t *)malloc(sizeof(hash_table_t));
+	hash_table_t *table;
 
+	table = (hash_table_t *)malloc(sizeof(hash_table_t));
 	if (table == NULL)
 		return (NULL);
 
