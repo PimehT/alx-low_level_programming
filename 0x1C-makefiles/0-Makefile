@@ -1,12 +1,6 @@
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra -pedantic
-SRC = main.c school.c
-EXEC = school
+all: school
 
-all: $(EXEC)
-
-$(EXEC): $(SRC)
-	$(CC) $(SRC) -o $(EXEC)
-
+school: main.c school.c
+	gcc main.c school.c -o school
 clean:
-	rm -f $(EXEC)
+	rm -f school
