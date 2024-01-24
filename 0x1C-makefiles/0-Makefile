@@ -1,0 +1,12 @@
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -pedantic
+SRC = main.c school.c
+EXEC = school
+
+all: $(EXEC)
+
+$(EXEC): $(SRC)
+	$(CC) $(SRC) -o $(EXEC)
+
+clean:
+	rm -f $(EXEC)
