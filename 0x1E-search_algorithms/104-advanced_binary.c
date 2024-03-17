@@ -37,8 +37,11 @@ int advanced_binary_helper(int *array, size_t low, size_t high, int value)
 
 	printf("Searching in array: ");
 	for (i = low; i <= high; i++)
+	{
+		if (i == high)
+			printf("%d\n", array[i]);
 		printf("%d, ", array[i]);
-	printf("\n");
+	}
 
 	if (array[mid] == value)
 	{
