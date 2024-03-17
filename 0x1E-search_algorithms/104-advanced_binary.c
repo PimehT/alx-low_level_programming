@@ -40,7 +40,8 @@ int advanced_binary_helper(int *array, size_t low, size_t high, int value)
 	{
 		if (i == high)
 			printf("%d\n", array[i]);
-		printf("%d, ", array[i]);
+		else
+			printf("%d, ", array[i]);
 	}
 
 	if (array[mid] == value)
@@ -48,7 +49,7 @@ int advanced_binary_helper(int *array, size_t low, size_t high, int value)
 		if (mid == 0 || array[mid - 1] != value)
 			return (mid);
 		else
-			return (advanced_binary_helper(array, low, mid - 1, value));
+			return (advanced_binary_helper(array, low, mid, value));
 	}
 	else if (array[mid] < value)
 		return (advanced_binary_helper(array, mid + 1, high, value));
