@@ -41,8 +41,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 			return (current);
 		if (current->next == NULL)
 			break;
-		else
-			current = current->next;
+		current = current->next;
 	}
 	return (NULL);
 }
